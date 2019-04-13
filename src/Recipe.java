@@ -15,4 +15,18 @@ public class Recipe {
         this.el = el;
     }
 
+    public void readInTimes(String filePath){
+      File excelFile = new File(filePath);
+      Scanner input = new Scanner(excelFile);
+      Scanner line;
+      String value;
+      Strin time;
+      while(input.hasNextLine()){
+        value = input.nextLine();
+        line = new Scanner(value);
+        t.setPrepTime(line.next());
+        t.setCookTime(line.next());
+      }
+    }
+
 }
