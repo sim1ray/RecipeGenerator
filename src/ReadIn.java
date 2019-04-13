@@ -1,9 +1,8 @@
 
 public class ReadIn {
-  public Day[] readInDays(String filePath) {
+  public ArrayList<String> readIn(String filePath) {
     File excelFile = new File(filePath);
-    int totalTradingDays = 255;
-    Day[] days = new Day[totalTradingDays];
+    ArrayList<String> elements = new ArrayList<>();
     Scanner reader;
     try {
       reader = new Scanner(excelFile);
