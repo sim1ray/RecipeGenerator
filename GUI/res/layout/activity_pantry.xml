@@ -32,43 +32,34 @@
         app:layout_constraintTop_toBottomOf="@+id/pantryLabelLayout"
         tools:layout_editor_absoluteX="0dp">
 
-        <LinearLayout
+        <TextView
+            android:id="@+id/textView4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:gravity="center_horizontal"
-            android:orientation="vertical"
+            android:layout_gravity="center_horizontal"
+            android:text="@string/IngredientToAddLabel"
+            android:textSize="20sp"
+            tools:layout_editor_absoluteX="123dp"
+            tools:layout_editor_absoluteY="158dp" />
+
+        <EditText
+            android:id="@+id/editText2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="textPersonName"
             tools:layout_editor_absoluteX="99dp"
-            tools:layout_editor_absoluteY="241dp">
+            tools:layout_editor_absoluteY="196dp" />
 
-            <TextView
-                android:id="@+id/textView4"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:text="@string/IngredientToAddLabel"
-                android:textSize="20sp"
-                tools:layout_editor_absoluteX="123dp"
-                tools:layout_editor_absoluteY="158dp" />
+        <Button
+            android:id="@+id/button2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/AddToPantryButton"
+            android:textSize="20sp"
+            tools:layout_editor_absoluteX="116dp"
+            tools:layout_editor_absoluteY="263dp" />
 
-            <EditText
-                android:id="@+id/editText2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:ems="10"
-                android:inputType="textPersonName"
-                tools:layout_editor_absoluteX="99dp"
-                tools:layout_editor_absoluteY="196dp" />
-
-            <Button
-                android:id="@+id/button2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/AddToPantryButton"
-                android:textSize="20sp"
-                tools:layout_editor_absoluteX="116dp"
-                tools:layout_editor_absoluteY="263dp" />
-        </LinearLayout>
     </LinearLayout>
 
     <LinearLayout
