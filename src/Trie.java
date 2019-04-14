@@ -46,6 +46,10 @@ public class Trie {
 		TrieNode current = root;
 		while(level < length) {
 			index = word.charAt(level);
+//			if(index == 65279){
+//				word = word.substring(1);
+//				index = word.charAt(0);
+//			}
 			if(current.subLetters[index] == null) {
 				return 0;
 			}

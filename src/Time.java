@@ -11,20 +11,20 @@ public class Time{
     this.cookTime = cookTime;
   }
 
-  public int getPrepTime(){
+  public double getPrepTime(){
     return prepTime;
   }
 
-  public int getCookTime(){
-    return time;
+  public double getCookTime(){
+    return cookTime;
   }
 
-  public int getStartTime(){
+  public double getStartTime(){
     return startTime;
   }
 
-  public int getStopTime(){
-    return stopTime;
+  public double getStopTime(){
+    return endTime;
   }
 
   public void setPrepTime(double prepTime){
@@ -43,13 +43,13 @@ public class Time{
 
   //Set to start time plus cook time;
   private void setStopTime(double stopTime){
-    this.stopTime = stopTime;
+    this.endTime = stopTime;
   }
 
   public double getTimeLeft(){
     //Set to current time;
     double currentTime = 0.0;
-    return stopTime - currentTime;
+    return endTime - currentTime;
   }
 
 }

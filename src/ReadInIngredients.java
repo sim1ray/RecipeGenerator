@@ -27,7 +27,7 @@ public class ReadInIngredients {
           }
 
           if (recipes.get(index) == null) {
-            recipes.get(index).setIngredients(in);
+//            recipes.get(index).setIngredients(in);
             index++;
             lineInput.close();
           }
