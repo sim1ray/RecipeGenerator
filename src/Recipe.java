@@ -22,7 +22,7 @@ public class Recipe {
         this.s = s;
         this.el = el;
     }
-
+    
     public ArrayList<Ingredient> getIngredients() {
         return ingredients;
     }
@@ -62,4 +62,5 @@ public class Recipe {
     public void setEl(ArrayList<Element> el) {
         this.el = el;
     }
+
 }
