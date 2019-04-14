@@ -5,6 +5,12 @@ public class Ingredient {
     private double amount;
     private String unit;
 
+    public Ingredient(String food, double amount, String unit) {
+        this.food = food;
+        this.amount = amount;
+        this.unit = unit;
+    }
+
     public String getFood() {
         return food;
     }
