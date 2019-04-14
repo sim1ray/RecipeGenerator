@@ -42,12 +42,15 @@ public class RecipeGeneratorMain{
       Scanner lineInput;
       int index = 0;
       int value = -1;
+      String s;
       while (reader.hasNextLine()) {
         input = reader.nextLine();
         lineInput = new Scanner(input);
         lineInput.useDelimiter(",");
         while (lineInput.hasNext()) {
-          value = ingredientList.search(lineInput.next());
+          s = lineInput.next();
+          s = s.replace('\ufeff',' ').trim();
+          value = ingredientList.search(s);
           if(value > 0) {
             inRecipe[index][value] = true;
           }

@@ -1,0 +1,6 @@
+Chris:
+Android Studio input + buttons
+
+Simone:
+Increase our "database"
+Write a function that takes an array of ingredients, and outputs an array of recipes
