@@ -1,4 +1,3 @@
-import java.awt.Color;
 
 public class Trie {
 
@@ -7,7 +6,6 @@ public class Trie {
 	class TrieNode {
 		private TrieNode[] subLetters;
 		private int value;
-		private Color textColor;
 
 		public TrieNode(){
 			subLetters = new TrieNode[128];
@@ -18,9 +16,6 @@ public class Trie {
 			return value;
 		}
 
-		public Color getTextColor() {
-			return textColor;
-		}
 	}
 
 	public Trie() {
