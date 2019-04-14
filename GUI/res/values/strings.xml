@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">RecipeGenerator</string>
+    <string name="EnterIngredientsLabel">Enter Ingredients:</string>
+    <string name="FindRecipesButton">Find Recipes!</string>
+    <string name="SearchLabel">Search</string>
+    <string name="MyPantryLabel">Pantry</string>
+    <string name="navPantryButton">Pantry</string>
+    <string name="navCalendarButton">Calendar</string>
+    <string name="navSearchButton">Search</string>
+    <string name="IngredientToAddLabel">Ingredient To Add:</string>
+    <string name="AddToPantryButton">Add To Pantry</string>
+</resources>
