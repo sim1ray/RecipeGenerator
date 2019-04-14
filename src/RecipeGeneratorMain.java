@@ -1,11 +1,10 @@
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.util.ArrayList;
 import java.util.Scanner;
 
 public class RecipeGeneratorMain{
 
-  public static void main(String[] args) {
+  public static Trie createIngredientList() {
     Trie ingredientList = new Trie();
     File excelFile = new File("/Users/simone/IdeaProjects/RecipeGenerator/IngredientList.csv");
     Scanner reader;
@@ -17,25 +16,33 @@ public class RecipeGeneratorMain{
     } catch (FileNotFoundException e) {
       e.printStackTrace();
     }
+    return ingredientList;
+  }
 
-    //System.out.println(ingredientList.search("chicken-broth"));
+  public static String[] createRecipeArray() {
+    String[] recipes = new String[50];
 
-    boolean[][] inRecipe = new boolean[100][100];
-    String[] recipes = new String[100];
-
-
-    excelFile = new File("/Users/simone/IdeaProjects/RecipeGenerator/Recipes.csv");
+    File excelFile = new File("/Users/simone/IdeaProjects/RecipeGenerator/Recipes.csv");
+    Scanner reader;
     try {
       reader = new Scanner(excelFile);
       int index = 0;
       while (reader.hasNext()) {
         recipes[index] = reader.nextLine();
+        index++;
       }
     } catch (FileNotFoundException e) {
       e.printStackTrace();
     }
+    return recipes;
+  }
 
-    excelFile = new File("/Users/simone/IdeaProjects/RecipeGenerator/Ingredients.csv");
+  public static boolean[][] createTwoDimArray() {
+    Trie ingredientList = createIngredientList();
+    boolean[][] inRecipe = new boolean[50][50];
+
+    Scanner reader;
+    File excelFile = new File("/Users/simone/IdeaProjects/RecipeGenerator/Ingredients.csv");
     try {
       reader = new Scanner(excelFile);
       String input;
@@ -51,7 +58,7 @@ public class RecipeGeneratorMain{
           s = lineInput.next();
           s = s.replace('\ufeff',' ').trim();
           value = ingredientList.search(s);
-          if(value > 0) {
+          if(value > -1) {
             inRecipe[index][value] = true;
           }
           lineInput.nextDouble();
@@ -66,14 +73,55 @@ public class RecipeGeneratorMain{
       e.printStackTrace();
     }
 
-    for (int i = 0; i < 100; i++) {
-      for(int j = 0; j < 100; j++) {
-        if (inRecipe[i][j])
-          System.out.print(j);
-        else
-          System.out.print(' ');
-      }
-      System.out.println();
-    }
+//    //TEST
+//    for (int i = 0; i < 100; i++) {
+//      for(int j = 0; j < 100; j++) {
+//        if (inRecipe[i][j])
+//          System.out.print('*');
+//        else
+//          System.out.print(' ');
+//      }
+//      System.out.println();
+//    }
+    return inRecipe;
+
   }
+
+  public static String outputRecipe(String[] ingredients) {
+    Trie ingredientList = createIngredientList();
+    String[] recipes = createRecipeArray();
+    int[] recipeIndex = new int[50];
+    boolean[][] inRecipe = createTwoDimArray();
+    int[] ingredientIndexes = new int[ingredients.length];
+
+    for (int i = 0; i < ingredients.length; i++) {
+      ingredientIndexes[i] = ingredientList.search(ingredients[i]);
+    }
+
+    for(int i = 0; i < ingredientIndexes.length; i++) {
+      int index = ingredientIndexes[i];
+      for(int j = 0; j < 50; j++) {
+        if(inRecipe[j][index])
+          recipeIndex[j]++;
+      }
+    }
+
+    int max = 0;
+    String result = "";
+    for(int i = 0; i < 50; i++) {
+      if (recipeIndex[i] > max) {
+        result = recipes[i];
+        max = recipeIndex[i];
+      }
+    }
+    return result + " is the dish you can make using the most ingredients from your kitchen!";
+  }
+
+  public static void main(String[] args) {
+    String[] ingredients = {"butter", "beef", "bread", "lettuce"};
+    System.out.println(outputRecipe(ingredients));
+
+  }
+
+
 }

@@ -51,7 +51,7 @@ public class Trie {
 //				index = word.charAt(0);
 //			}
 			if(current.subLetters[index] == null) {
-				return 0;
+				return -1;
 			}
 			current = current.subLetters[index];
 			level++;
